@@ -1,0 +1,36 @@
+
+
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+// @import "~bootstrap/scss/utilities";
+
+// @import "~bootstrap/scss/root";
+// $theme-colors: map-remove($theme-colors, "primary", "secondary");
+
+// @import "fonts.scss";
+
+@import "custom.scss";
+// @import "fonts.css";
+@import "~bootstrap/scss/bootstrap";
+
+
+body {
+    background-color: $secondary;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    // font-family: $LatoRegular;
+}
+
+header {
+    background-image: url('../images/pexels-neosiam.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: inherit;
+    height: 35rem;
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 25px;
+    text-align: center;
+}
+
