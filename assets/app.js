@@ -11,6 +11,8 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
+require('bootstrap');
+
 // assets/app.js
 
 // returns the final, public path to this file
