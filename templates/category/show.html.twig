@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block header %}
+    <header class="show">
+        {{ include('_navbar.html.twig')}}
+    
+        {% block h1 %}<h1>Catégorie {{ category.name }} </h1>{% endblock %}
+    </header>
+{% endblock %}
+{% block body %}
+                <div class="container d-flex flex-wrap justify-content-around mt-3">
+     {% for program in programs %}
+                {# <ul>
+                    <li>
+                     <a href="{{ path('program_show', {id: program.id}) }}" class="btn btn-primary">{{program.title}}</a>
+                    </li>
+                </ul> #}
+                 <div class="card m-3" style="width: 20rem;">
+                    <div class="card-body">
+                        <h2 class="card-title"> {{program.id}} -  
+                            <a href="{{ path('program_show', {id: program.id}) }}">{{program.title}}</a>
+                        </h2>
+                        <p class="card-text">{{ program.synopsis }}</p>
+                    </div>
+                    </div>
+                
+
+        {% else %}
+                Aucune série trouvée dans cette catégorie.
+        {% endfor %}
+        </div>
+
+{% endblock %}
+

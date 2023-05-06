@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Categories{% endblock %}
+
+{% block h1 %} <h1>Toutes les catégories : </h1>{% endblock %}
+
+{% block body %}
+
+ <div class="container d-flex flex-wrap justify-content-around mt-3">
+        {% for category in categories %}
+                <ul>
+                    <li>
+                     <a href="{{ path('category_show', {name: category.name}) }}" class="btn btn-primary">{{category.name}}</a>
+                    </li>
+                </ul>
+
+        {% else %}
+                Aucune série trouvée.
+        {% endfor %}
+    </div>
+
+    <a href="{{ path('app_index') }}" class="btn btn-primary">
+        Retour à l'accueil
+    </a>
+
+
+{% endblock %}

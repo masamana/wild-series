@@ -1,40 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wild Series{% endblock %}
+{% block title %}All Programs{% endblock %}
 
-{% block h1 %} <h1>Liste des programmes</h1>{% endblock %}
+{% block h1 %} <h1>Toutes les séries de la table program : </h1>{% endblock %}
 
 {% block body %}
-<div class="container d-flex justify-content-around mt-3">
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{ asset('build/images/squid-game-1.jpg') }}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Squid Game</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="{{ path('program_show', {id: 4})}}" class="btn btn-primary">Afficher</a>
-    </div>
+
+    <div class="container d-flex flex-wrap justify-content-around mt-3">
+        {% for program in programs %}
+                <div class="card m-3" style="width: 20rem;">
+                    <img class="card-img-top" src="{{program.poster}}" alt="{{ program.title }} poster">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                        <p class="card-text">{{ program.synopsis }}</p>
+                        <a href="{{ path('program_show', {id: program.id}) }}" class="btn btn-primary">Afficher</a>
+                    </div>
+                </div>
+
+        {% else %}
+                Aucune série trouvée.
+        {% endfor %}
     </div>
 
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Afficher</a>
-    </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Afficher</a>
-    </div>
-    </div>
-
-</div>
-
+    <a href="{{ path('app_index') }}" class="btn btn-primary">
+        Retour à l'accueil
+    </a>
 
 
 {% endblock %}
